@@ -1,6 +1,20 @@
 <div class="container">
   <h1>Pet Store</h1>
   
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Add<span class="glyphicon glyphicon-ok"></span></a></p>
+  <div class="row">
+    <div class="col-lg-4">  
+      <input type="text" class="form-control" placeholder="Name" ng-model="name">
+    </div>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" placeholder="Status" ng-model="status">
+    </div>
+    <div class="col-lg-4">
+      <button type="submit" class="btn btn-success" ng-click="addPet()">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
+      </button>
+
+    </div>
+  </div>
+
 </div>
 
