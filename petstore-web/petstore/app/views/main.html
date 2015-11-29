@@ -12,9 +12,34 @@
       <button type="submit" class="btn btn-success" ng-click="addPet()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
       </button>
-
     </div>
   </div>
 
+  
+  <div class="row top-buffer">
+    <div class="panel panel-default">
+    
+    <div class="panel-heading">
+      <h3 class="panel-title">Pets</h3>
+    </div>
+
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+      </tr>
+      <tr ng-repeat = "pet in pets">
+        <td>{{ pet.name }}</td>
+        <td>{{ pet.status }}</td>
+      </tr> 
+    </table>
+    </div>
+  <div>
+
+
+
+  
+   
+    
 </div>
 
