@@ -1,8 +1,11 @@
 package com.wglabs.petstore.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.google.common.collect.Lists;
 import com.wglabs.petstore.api.PetDto;
 import com.wglabs.petstore.model.Pet;
 import com.wglabs.petstore.repository.PetRepository;
@@ -25,7 +28,17 @@ public class PetStoreService implements  IPetStoreService{
 	}
 	
 	
-	
-	
+	@Override
+	public List<PetDto> findAllPets() {		
+		
+		Iterable<Pet> pets = petRepository.findAllByOrderByIdAsc();
+		
+		if (pets == null) {
+			return Lists.newArrayList();
+		} else {
+			return Lists.newArrayList(converter.reverse().convertAll(pets));
+		}
+		
+	}
 
 }

@@ -6,4 +6,5 @@ import com.wglabs.petstore.model.Pet;
 
 public interface PetRepository extends CrudRepository<Pet, Long> {
 
+	public Iterable<Pet> findAllByOrderByIdAsc();
 }

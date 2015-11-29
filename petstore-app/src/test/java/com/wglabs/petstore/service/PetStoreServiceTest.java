@@ -26,12 +26,20 @@ public class PetStoreServiceTest {
 	public void testCreatePet(){
 		
 		PetDto petDto = new PetDto();
-		petDto.setName("name");
-		petDto.setStatus("SOLD");
+		petDto.setName("pet");
+		petDto.setStatus("sold");
 		
 		fixture.createPet(petDto);
 		
 		verify(petRepository).save(Mockito.any(Pet.class));
+	}
+	
+	@Test
+	public void testFindAllPets(){
+		
+		fixture.findAllPets();
+		
+		verify(petRepository).findAllByOrderByIdAsc();
 	}
 
 }

@@ -1,0 +1,2 @@
+curl -i -X GET --header "Content-Type: application/json" --header "Accept: application/json"  "http://localhost:8080/pet"
+curl -i -POST --header "Content-Type: application/json" --header "Accept: application/json" --data '{"name": "doggie", "status": "available"}' "http://localhost:8080/pet"
