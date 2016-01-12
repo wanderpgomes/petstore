@@ -14,6 +14,8 @@ angular.module('petstoreApp').controller('MainCtrl', function ($scope, $http) {
 
     $scope.pets = [];
 
+    $scope.selectedPet = null;
+
     $scope.addPet = function(){
     	if ($scope.name && $scope.status){
 	    	$http.post('http://localhost:8080/pet', {name: $scope.name, status: $scope.status}).then(function success(response) {
@@ -36,6 +38,31 @@ angular.module('petstoreApp').controller('MainCtrl', function ($scope, $http) {
 		    
 		 });
     };
+
+    $scope.selectPet = function(pet){
+         $http.get('http://localhost:8080/pet/' + pet.id).then(function success(response) {
+
+            $scope.selectedPet = response.data;
+            
+        }, function error(response) {
+            
+        });
+        
+
+    };
+
+    $scope.deletePet = function(pet){
+        $http.delete('http://localhost:8080/pet/' + pet.id).then(function success(response) {
+
+            $scope.getPets();
+            $scope.selectedPet = null;
+            
+        }, function error(response) {
+            
+        });
+        
+    };
+
 
     $scope.clearForm =  function() {
     	$scope.name = '';

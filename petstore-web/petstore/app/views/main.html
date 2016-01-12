@@ -18,21 +18,40 @@
   <div class="row top-buffer">
     <div class="panel panel-default">
     
-    <div class="panel-heading">
-      <h3 class="panel-title">Pets</h3>
-    </div>
+      <div class="panel-heading">
+        <h3 class="panel-title">Pets</h3>
+      </div>
 
-    <table class="table">
-      <tr>
-        <th>Name</th>
-        <th>Status</th>
-      </tr>
-      <tr ng-repeat = "pet in pets">
-        <td>{{ pet.name }}</td>
-        <td>{{ pet.status }}</td>
-      </tr> 
-    </table>
+      <table class="table table-hover">
+        <tr>
+          <th>Name</th>
+          <th>Status</th>
+        </tr>
+        <tr ng-repeat = "pet in pets" ng-click="selectPet(pet)">
+          <td>{{ pet.name }}</td>
+          <td>{{ pet.status }}</td>
+        </tr> 
+      </table>
     </div>
   <div>
+
+  <div class="panel panel-default" ng-show="selectedPet">
+    <div class="panel-heading">
+      <div class="row">
+        <div class="col-md-10">
+          <strong>{{ selectedPet.name }}</strong>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-sm btn-danger" ng-click="deletePet(selectedPet)">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      {{ selectedPet.status }}
+    </div>
+  </div>
+
 </div>
 
