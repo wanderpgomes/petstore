@@ -41,5 +41,14 @@ public class PetStoreServiceTest {
 		
 		verify(petRepository).findAllByOrderByIdAsc();
 	}
+	
+	@Test
+	public void testFindPet(){
+		Long petId = 999L;
+		
+		fixture.findPet(petId);
+		
+		verify(petRepository).findOne(Mockito.eq(petId));
+	}
 
 }

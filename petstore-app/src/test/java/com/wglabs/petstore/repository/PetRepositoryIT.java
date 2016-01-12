@@ -1,6 +1,7 @@
 package com.wglabs.petstore.repository;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -51,6 +52,14 @@ public class PetRepositoryIT {
 		assertTrue(iterator.hasNext());
 		assertEquals(pet1.getName(), iterator.next().getName());
 		assertEquals(pet2.getName(), iterator.next().getName());
+	}
+	
+	@Test
+	public void testFindAllPets_noPetFound(){
+		Iterable<Pet> result = petRepository.findAllByOrderByIdAsc();
+		
+		assertNotNull(result);
+		assertFalse(result.iterator().hasNext());
 	}
 	
 	@After

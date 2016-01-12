@@ -1,5 +1,6 @@
 package com.wglabs.petstore.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,23 +23,21 @@ public class PetStoreService implements  IPetStoreService{
 	public PetDto createPet(PetDto petDto) {		
 		
 		Pet pet = petRepository.save(converter.convert(petDto));
-		
 		return converter.reverse().convert(pet);
-
 	}
-	
 	
 	@Override
 	public List<PetDto> findAllPets() {		
 		
 		Iterable<Pet> pets = petRepository.findAllByOrderByIdAsc();
+		return (pets == null) ? new ArrayList<PetDto>() : Lists.newArrayList(converter.reverse().convertAll(pets));	
+	}
+
+	@Override
+	public PetDto findPet(Long id) {
 		
-		if (pets == null) {
-			return Lists.newArrayList();
-		} else {
-			return Lists.newArrayList(converter.reverse().convertAll(pets));
-		}
-		
+		Pet pet = petRepository.findOne(id);
+		return converter.reverse().convert(pet);
 	}
 
 }
