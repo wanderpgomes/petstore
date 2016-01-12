@@ -40,4 +40,10 @@ public class PetStoreService implements  IPetStoreService{
 		return converter.reverse().convert(pet);
 	}
 
+	@Override
+	public void deletePet(Long id) {
+		
+		petRepository.delete(id);
+	}
+
 }

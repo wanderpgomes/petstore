@@ -44,5 +44,13 @@ public class PetStoreRestController {
 		return petStoreService.findPet(petId);
 		
     }
+	
+	@CrossOrigin(origins = "http://localhost:9000")
+	@RequestMapping(value="/pet/{petId}", method=RequestMethod.DELETE)
+    public void deletePet(@PathVariable Long petId) {
+        
+		petStoreService.deletePet(petId);
+		
+    }
 
 }

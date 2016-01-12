@@ -50,5 +50,15 @@ public class PetStoreServiceTest {
 		
 		verify(petRepository).findOne(Mockito.eq(petId));
 	}
+	
+	@Test
+	public void testDeletePet(){
+		Long petId = 999L;
+		
+		fixture.deletePet(petId);
+		
+		verify(petRepository).delete(Mockito.eq(petId));
+	}
+
 
 }

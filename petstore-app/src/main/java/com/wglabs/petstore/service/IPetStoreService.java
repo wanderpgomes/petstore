@@ -11,5 +11,7 @@ public interface IPetStoreService {
 	public List<PetDto> findAllPets();
 	
 	public PetDto findPet(Long id);
+	
+	public void deletePet(Long id);
 
 }

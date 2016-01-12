@@ -15,7 +15,7 @@ angular.module('petstoreApp').controller('MainCtrl', function ($scope, $http) {
     $scope.pets = [];
 
     $scope.addPet = function(){
-    	if (name && status){
+    	if ($scope.name && $scope.status){
 	    	$http.post('http://localhost:8080/pet', {name: $scope.name, status: $scope.status}).then(function success(response) {
 
 	    		$scope.clearForm();
