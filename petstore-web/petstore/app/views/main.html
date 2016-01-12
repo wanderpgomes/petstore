@@ -9,7 +9,7 @@
       <input type="text" class="form-control" placeholder="Status" ng-model="status">
     </div>
     <div class="col-lg-4">
-      <button type="submit" class="btn btn-success" ng-click="addPet()">
+      <button id="add" type="submit" class="btn btn-success" ng-click="addPet()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
       </button>
     </div>
@@ -42,7 +42,7 @@
           <strong>{{ selectedPet.name }}</strong>
         </div>
         <div class="col-md-2">
-          <button class="btn btn-sm btn-danger" ng-click="deletePet(selectedPet)">
+          <button id="delete" class="btn btn-sm btn-danger" ng-click="deletePet(selectedPet)">
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
           </button>
         </div>
