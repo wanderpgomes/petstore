@@ -29,5 +29,26 @@ describe('Controller: MainCtrl', function () {
 
     expect(scope.pets.length).toBe(3);
   });
+
+  
+
+  it('should add a new pet', function() {
+    var pet = {name: 'pet1', status: 'sold'};
+    httpBackend.when("POST", "http://localhost:8080/pet",
+        function(postData) {
+            var jsonData = JSON.parse(postData);
+            expect(jsonData.name).toBe(pet.name);
+            expect(jsonData.status).toBe(pet.status);
+            return true;
+        }
+    ).respond(200, true );
+
+    scope.name = pet.name;
+    scope.status = pet.status;
+
+    scope.addPet();
+
+    httpBackend.flush();
+  });
   
 });

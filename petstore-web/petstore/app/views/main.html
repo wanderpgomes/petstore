@@ -39,7 +39,7 @@
     <div class="panel-heading">
       <div class="row">
         <div class="col-md-10">
-          <strong>{{ selectedPet.name }}</strong>
+          <span id="selected"><strong>{{ selectedPet.name }}</strong></span>
         </div>
         <div class="col-md-2">
           <button id="delete" class="btn btn-sm btn-danger" ng-click="deletePet(selectedPet)">
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="panel-body">
-      {{ selectedPet.status }}
+      <strong>Status:</strong><span> {{ selectedPet.status }}</span>
     </div>
   </div>
 
