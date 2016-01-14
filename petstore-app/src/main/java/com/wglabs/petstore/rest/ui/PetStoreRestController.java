@@ -22,6 +22,14 @@ public class PetStoreRestController {
 	private IPetStoreService petStoreService;
 	
 	@CrossOrigin(origins = "http://localhost:9000")
+	@RequestMapping(value="/", method=RequestMethod.GET)
+    public String ping() {
+        
+		return "PetStore is open for business!!";
+		
+    }
+	
+	@CrossOrigin(origins = "http://localhost:9000")
 	@RequestMapping(value="/pet", method=RequestMethod.POST)
     public  @ResponseBody PetDto createPet(@RequestBody PetDto request) {
         
