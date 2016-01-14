@@ -9,7 +9,8 @@ describe('Petstore', function() {
   it('should add a pet', function() {
     
     element(by.model('name')).sendKeys(petName);
-    element(by.model('status')).sendKeys('Sold');
+    element(by.model('status')).sendKeys('pending');
+     element(by.model('category')).sendKeys('terrier');
     element(by.id('add')).click();
 
     var petList = element.all(by.repeater('pet in pets'));
@@ -36,6 +37,6 @@ describe('Petstore', function() {
 
     expect(petList.last().getText()).not.toContain(petName);
     
-  });
+  }); 
 
 });

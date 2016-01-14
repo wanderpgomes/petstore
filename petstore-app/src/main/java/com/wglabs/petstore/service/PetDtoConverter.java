@@ -12,6 +12,7 @@ public class PetDtoConverter extends Converter<PetDto, Pet>{
 		petDto.setId(pet.getId());
 		petDto.setName(pet.getName());
 		petDto.setStatus(pet.getStatus());
+		petDto.setCategory(pet.getCategory());
 		return petDto;
 	}
 
@@ -21,6 +22,7 @@ public class PetDtoConverter extends Converter<PetDto, Pet>{
 		pet.setId(petDto.getId());
 		pet.setName(petDto.getName());
 		pet.setStatus(petDto.getStatus());
+		pet.setCategory(petDto.getCategory());
 		return pet;
 	}
 

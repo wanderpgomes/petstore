@@ -5,10 +5,19 @@
     <div class="col-lg-4">  
       <input type="text" class="form-control" placeholder="Name" ng-model="name">
     </div>
-    <div class="col-lg-4">
-      <input type="text" class="form-control" placeholder="Status" ng-model="status">
+    <div class="col-md-3">
+      <select class="form-control" ng-model="status">
+        <option value="" disabled selected>Status</option>
+        <option>sold</option>
+        <option>available</option>
+        <option>pending</option>
+      </select>
     </div>
-    <div class="col-lg-4">
+   
+    <div class="col-md-3">
+      <input type="text" class="form-control" placeholder="Category" ng-model="category">
+    </div>
+    <div class="col-md-2">
       <button id="add" type="submit" class="btn btn-success" ng-click="addPet()">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add
       </button>
@@ -26,10 +35,12 @@
         <tr>
           <th>Name</th>
           <th>Status</th>
+          <th>Category</th>
         </tr>
         <tr ng-repeat = "pet in pets" ng-click="selectPet(pet)">
           <td>{{ pet.name }}</td>
           <td>{{ pet.status }}</td>
+          <td>{{ pet.category }}</td>
         </tr> 
       </table>
     </div>
@@ -49,7 +60,8 @@
       </div>
     </div>
     <div class="panel-body">
-      <strong>Status:</strong><span> {{ selectedPet.status }}</span>
+      <div><strong>Status:</strong><span> {{ selectedPet.status }}</span></div>
+      <div><strong>Category:</strong><span> {{ selectedPet.category }}</span></div>
     </div>
   </div>
 

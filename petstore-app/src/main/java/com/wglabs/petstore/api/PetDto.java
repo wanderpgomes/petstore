@@ -5,6 +5,7 @@ public class PetDto {
 	private Long id;
 	private String name;
 	private String status;
+	private String category;
 	
 	public Long getId() {
 		return id;
@@ -23,6 +24,12 @@ public class PetDto {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	
 }

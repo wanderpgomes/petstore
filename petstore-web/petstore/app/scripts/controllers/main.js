@@ -11,6 +11,7 @@ angular.module('petstoreApp').controller('MainCtrl', function ($scope, $http) {
 
     $scope.name = '';
     $scope.status = '';
+    $scope.category = '';
 
     $scope.pets = [];
 
@@ -18,7 +19,7 @@ angular.module('petstoreApp').controller('MainCtrl', function ($scope, $http) {
 
     $scope.addPet = function(){
     	if ($scope.name && $scope.status){
-	    	$http.post('http://localhost:8080/pet', {name: $scope.name, status: $scope.status}).then(function success(response) {
+	    	$http.post('http://localhost:8080/pet', {name: $scope.name, status: $scope.status, category: $scope.category}).then(function success(response) {
 
 	    		$scope.clearForm();
 	    		$scope.getPets();
@@ -67,6 +68,7 @@ angular.module('petstoreApp').controller('MainCtrl', function ($scope, $http) {
     $scope.clearForm =  function() {
     	$scope.name = '';
     	$scope.status = '';
+        $scope.category = '';
     };
 
     $scope.getPets();
